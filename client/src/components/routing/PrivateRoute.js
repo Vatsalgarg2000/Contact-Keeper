@@ -11,6 +11,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   //else, we load out component and extra props in the component
   //This is very common for creating a private route component
 
+  //this is the reason why as soon as our server starts, we see login page because initially, isAuthenticated is false and therefore redirected to /login
+
   return (
     <Route
       {...rest}

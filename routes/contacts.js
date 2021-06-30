@@ -6,6 +6,8 @@ const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 const Contact = require('../models/Contact');
 
+//After inlcuding the express.Router() as router, we will no longer do app.get or app.post, we will do router.get()/router.post()
+
 // @route     GET api/contacts
 // @desc      Get all users contacts
 // @access   Private
@@ -15,6 +17,7 @@ router.get('/', auth, async (req, res) => {
     const contacts = await Contact.find({ user: req.user.id }).sort({
       date: -1,
     });
+    //instead of res.send, we can do res.json to send the data in json format.
     res.json(contacts);
   } catch (err) {
     console.log(err.message);
@@ -25,6 +28,10 @@ router.get('/', auth, async (req, res) => {
 // @route     POST api/contacts
 // @desc      add new contact
 // @access   Private
+
+//This => [auth, [check('name', 'Name is Required').not().isEmpty()]], is done to check if the fields entered are correct or not.
+//here auth is the middleware
+//We check these fiels before making a contact.
 router.post(
   '/',
   [auth, [check('name', 'Name is Required').not().isEmpty()]],
@@ -58,6 +65,7 @@ router.post(
 // @route     PUT api/contacts/:id
 // @desc      Update Contact
 // @access   Private
+//with put we need an id => localhost:3000/api/contacts/7273
 router.put('/:id', auth, async (req, res) => {
   const { name, email, phone, type } = req.body;
 

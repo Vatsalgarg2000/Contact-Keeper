@@ -19,6 +19,7 @@ const Contacts = () => {
   }
 
   //display the spinner when loading =true || contacts=null
+  //this TransitionGroup and CSSTransition is for adding animation while adding/deleting a contact or filtering them
   return (
     <Fragment>
       {contacts !== null && !loading ? (

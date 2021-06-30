@@ -18,6 +18,7 @@ const ContactForm = () => {
       });
     }
   }, [contactContext, current]);
+  //Since we want this above thing to happen when contactContext is changed or current valuue is changed, that is why they are put in thr array
 
   const [contact, setContact] = useState({
     name: '',

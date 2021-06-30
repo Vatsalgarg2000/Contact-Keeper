@@ -60,10 +60,12 @@ export default (state, action) => {
         current: null,
       };
     case FILTER_CONTACTS:
+    //this is how we filter contacts
+    //note we are filling the filtered value here, not contacts
       return {
         ...state,
         filtered: state.contacts.filter((contact) => {
-          const regex = new RegExp(`${action.payload}`, 'gi');
+          const regex = new RegExp(`${action.payload}`, 'gi'); //we put 'gi' since we want to match the contacts if they are either uppercase or lowercase.
           return contact.name.match(regex) || contact.email.match(regex);
         }),
       };

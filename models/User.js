@@ -1,3 +1,4 @@
+//making the Schema for user
 const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({

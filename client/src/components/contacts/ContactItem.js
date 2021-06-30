@@ -44,7 +44,7 @@ const ContactItem = ({ contact }) => {
       <p>
         <button
           className='btn btn-dark btn-sm'
-          onClick={() => setCurrent(contact)}
+          onClick={() => setCurrent(contact)} //on clicking the edit button, set Current to Contact. On doing this, we can now edit the form
         >
           Edit
         </button>

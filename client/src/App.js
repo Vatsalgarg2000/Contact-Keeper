@@ -14,6 +14,7 @@ import AlertState from './context/alert/AlertState';
 import setAuthToken from './utils/setAuthToken';
 import './App.css';
 
+//we want this to load every single time our main component loads
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
